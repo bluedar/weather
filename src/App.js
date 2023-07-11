@@ -46,7 +46,7 @@ function App() {
     } else {
       getWeatherByCity();
     }
-  }, [city, getCurrentLocation, getWeatherByCity]);
+  }, [city]);
 
   return (
     <>
