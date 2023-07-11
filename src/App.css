@@ -1,0 +1,33 @@
+body {
+  height: 100vh;
+  background: url("./img/bgWeather.png") center center / cover no-repeat;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.weather-box {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(190, 190, 190, 0.8);
+  text-align: center;
+  border-radius: 24px;
+  padding: 50px 0 20px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.weather-button {
+  padding: 5px 30px;
+  background: rgba(131, 220, 255, 0.5);
+  border-radius: 50px;
+  text-align: center;
+}
+
+.weather-button button {
+  margin: 5px;
+}
