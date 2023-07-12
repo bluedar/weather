@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import WeatherBox from "./components/WeatherBox";
 import WeatherButton from "./components/WeatherButton";
@@ -22,23 +22,23 @@ function App() {
     });
   };
   //좌표를 이용해서 날씨 API가져오기
-  const getWeatherByCurrentLocation = async (lat, lon) => {
+  const getWeatherByCurrentLocation = useCallback(async (lat, lon) => {
     setLoading(true);
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=0d17f74ec0e3138fe53cff48e29df572&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
     setWeather(data);
     setLoading(false);
-  };
+  }, []);
   //도시이름으로 날씨 API가져오기
-  const getWeatherByCity = async () => {
+  const getWeatherByCity = useCallback(async () => {
     setLoading(true);
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0d17f74ec0e3138fe53cff48e29df572&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
     setWeather(data);
     setLoading(false);
-  };
+  }, [city]);
 
   useEffect(() => {
     if (city === "current") {
